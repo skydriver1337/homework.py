@@ -1,6 +1,7 @@
+import math
 def square(side):
-return side ** 2
-side_length = 5
-area = square(side_length)
-
-print(f"Площадь квадрата со стороной {side_length} равна {area}")
+area = side ** 2
+return math.ceil(area) if not isinstance(side,int) else area
+print(square(5))
+print(square(5.3))
+print(square(4.1))
