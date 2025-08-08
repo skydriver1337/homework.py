@@ -8,8 +8,12 @@ def month_to_season(month):
   elif month in [9, 10, 11]:
     return "Осень"
   else:
-    return
+    raise ValueError("Некорректный номер месяца. Введите число от 1 до 12.")
+ if __name__ == "__main__":
+   test_cases = [1, 3, 6, 9, 12, 15]
 
-month = 2
-season = month_to_season(month)
-print(f"Месяц {month} относится к сезону: {season}")
+   for month in test_cases:
+       try:
+           print(f"Месяц {month}: {month_to_season(month)}")
+except ValueError as e:
+   print(f"Месяц {month}: {e}")
