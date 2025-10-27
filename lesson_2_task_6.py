@@ -1,6 +1,7 @@
-def filter_list(lst):
-  return [x for x in lst if x < 30 and x % 3 == 0]
+# Необходимо вывести элементы, которые одновременно:
+# меньше 30,
+# делятся на 3 без остатка
 lst = [11, 5, 8, 32, 15, 3, 20, 132, 21, 4, 555, 9, 20]
-filtered = filter_list(lst)
-print("Исходный список:", lst)
-print("Отфильтрованный список (числа <30, кратные 3):", filtered)
+for n in lst:
+    if n < 30 and n % 3 == 0:
+        print(n)
