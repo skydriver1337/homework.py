@@ -1,7 +1,10 @@
-import math
-def square(side):
-area = side ** 2
-return math.ceil(area) if not isinstance(side,int) else area
-print(square(5))
-print(square(5.3))
-print(square(4.1))
+# Площадь квадрата со стороной a
+from math import ceil
+
+
+def square(a):
+    side = a if a == int(a) else ceil(a)
+    return side * side
+
+
+print(square(5.1))
