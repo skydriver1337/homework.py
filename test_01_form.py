@@ -18,6 +18,11 @@ def test_form(browser):
     # Открытие страницы
     browser.get("https://bonigarcia.dev/selenium-webdriver-java/data-types.html")
 
+    # ОЖИДАНИЕ перед заполнением формы
+    WebDriverWait(browser, 10).until(
+        EC.element_to_be_clickable((By.CSS_SELECTOR, 'input[name="first-name"]'))
+    )
+
     # Заполнение формы
     browser.find_element(
         By.CSS_SELECTOR, 'input[name="first-name"]').send_keys("Иван")
