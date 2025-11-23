@@ -10,8 +10,8 @@ from selenium.webdriver.firefox.service import Service as FirefoxService
 # Данные для авторизации и оформления заказа
 USERNAME = "standard_user"
 PASSWORD = "secret_sauce"  # стандартный пароль для этого пользователя
-FIRST_NAME = "Sergey"
-LAST_NAME = "Latynin"
+FIRST_NAME = "Igor"
+LAST_NAME = "Vorobev"
 ZIP_CODE = "302023"
 EXPECTED_TOTAL = "$58.29"
 
@@ -54,6 +54,11 @@ def test_saucedemo(browser):
 
     # 5. Начало оформления заказа
     browser.find_element(By.CSS_SELECTOR, "#checkout").click()
+
+    # ОЖИДАНИЕ перед заполнением формы
+    WebDriverWait(browser, 10).until(
+        EC.element_to_be_clickable((By.CSS_SELECTOR, 'input[name="first-name"]'))
+    )
 
     # 6. Заполнение формы
     browser.find_element(
